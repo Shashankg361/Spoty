@@ -46,7 +46,8 @@ async function callback(req,res){
             const userResponse = await axios(options)
             const data = userResponse.data;
             console.log(data);
-            res.status(200).json({data});
+            res.writeHead(302,{Location : `/?data=${encodeURIComponent(JSON.stringify(data))}`});
+            res.end();
 
         }catch(error){
             res.status(500).json({eorr:'failed to get access token'});
