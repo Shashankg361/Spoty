@@ -14,8 +14,8 @@ const generateRandomString = (length)=>{
 export default function login(req, res) {
 
   var state = generateRandomString(16);
-  var scope = 'user-read-private user-read-email';
-  console.log('working');
+  var scope = 'user-read-private user-read-email user-read-currently-playing user-library-read user-read-recently-played';
+  //console.log('working');
   res.writeHead(302,{Location:'https://accounts.spotify.com/authorize?' +
     querystring.stringify({
       response_type: 'code',
