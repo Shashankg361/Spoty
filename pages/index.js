@@ -10,8 +10,6 @@ export default  function Home() {
   const [data , setData] = useState(null);
   const [currentSong , setCurrentSong] = useState("");
   const router = useRouter();
-  let currentlyPlayingSongId ;
-  let currentlyPlayingSongData;
 
   useEffect(()=>{
     //console.log('working');
@@ -56,7 +54,7 @@ export default  function Home() {
       </div>
       {
         data && 
-        <div className="flex items-start ">
+        <div className="Show flex items-start " >
           <LikedSong accessToken={data.access_token} />
           <ShowPlayList accessToken={data.access_token}/>          
           <RecenetlyPlayed accessToken={data.access_token}/>

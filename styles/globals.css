@@ -25,3 +25,11 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+
+@media only screen and (max-width:600px){
+  .Show{
+    display: flex;
+    flex-direction: column;
+  }
+}
