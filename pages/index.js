@@ -1,13 +1,17 @@
-import ShowPlayList from "@/components/playList";
+import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-export default function Home() {
+export default  function Home() {
   const [data , setData] = useState(null);
-   const router = useRouter();
-   useEffect(()=>{
-    console.log('working');
+  const [currentSong , setCurrentSong] = useState("");
+  const router = useRouter();
+  let currentlyPlayingSongId ;
+  let currentlyPlayingSongData;
+
+  useEffect(()=>{
+    //console.log('working');
     if(router.query && router.query.data){
     const query = decodeURIComponent(router.query.data);
     console.log('working',JSON.parse(query));
@@ -17,9 +21,23 @@ export default function Home() {
       console.log(error);
     }
    }
-   },[router.query.data])
-  //console.log(data)
-  //data && console.log('datadatadtad - ', data.currentData.item.href);
+  },[router.query.data]);
+
+  if(data){
+    console.log('called data');
+    async function handlePromise(){
+      const response = await currentlyPlayingSong(data.access_token);
+      console.log('res ',response)
+      setCurrentSong(response);
+      currentlyPlayingSongId = response;
+    }
+    handlePromise();  
+  }
+  
+  useEffect(()=>{
+    setCurrentSong(currentlyPlayingSongId);
+  },[currentlyPlayingSongId])
+
   return (
     <main
       className={`flex min-h-screen flex-col items-center mb-2 p-24`}
@@ -29,8 +47,8 @@ export default function Home() {
       <h1>Hello - {data ? data.data.display_name : 'Not loggedIn'}</h1>
       <div>
         {data && 
-        ( data.currentData ? 
-        <iframe src={`https://open.spotify.com/embed/track/${data.currentData.item.id}`} width="300" height="380"  allowtransparency="true" allow="encrypted-media"></iframe>
+        ( currentSong ? 
+        <iframe src={`https://open.spotify.com/embed/track/${currentSong}`} width="300" height="380"  allowtransparency="true" allow="encrypted-media"></iframe>
         : <h1 className="text-xl m-3 font-semibold">Currently No song is been played !</h1>)}
       </div>
       {
@@ -44,4 +62,22 @@ export default function Home() {
       
     </main>
   )
+}
+
+const currentlyPlayingSong = async (access_token )=>{
+  console.log('function called');
+  const getCurrentlyPlaying = {
+    url:'https://api.spotify.com/v1/me/player/currently-playing',
+    methods :'get',
+    headers :{'Authorization':'Bearer ' + access_token},
+  }
+  const currentlyPlayingSongsResponse = await axios(getCurrentlyPlaying);
+  const currentlyPlayedSongs = currentlyPlayingSongsResponse.data;
+  /*setCurrentSong();*/
+  
+  console.log('Recent - ',currentlyPlayedSongs);
+  if(currentlyPlayedSongs){
+    return currentlyPlayedSongs.item.id;
+  }
+  
 }

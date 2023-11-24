@@ -49,14 +49,7 @@ async function callback(req,res){
            
             //console.log(data);
             
-            const getList = {
-              url:'https://api.spotify.com/v1/me/playlists',
-              methods :'get',
-              headers :{'Authorization':'Bearer ' + access_token},
-            }
-            const listResponse = await axios(getList);
-            const List = listResponse.data;
-            console.log( 'LIST - ',List);
+            
 
             /*const tracks = {
               url :List.href,
@@ -66,15 +59,6 @@ async function callback(req,res){
             const tracksResponse = await axios(tracks);
             const tracksData = tracksResponse.data;
             console.log('tracks - ',tracksData);*/
-
-            const getCurrent = {
-              url:'https://api.spotify.com/v1/me/player/currently-playing',
-              methods :'get',
-              headers :{'Authorization':'Bearer ' + access_token},
-            }
-            const currentResponse = await axios(getCurrent);
-            const currentData = currentResponse.data;
-            console.log('current - ',currentData);
 
             const getLikedSongs = {
               url:'https://api.spotify.com/v1/me/tracks',
@@ -96,7 +80,6 @@ async function callback(req,res){
 
             const Data ={access_token ,
                             data,
-                            currentData,
                             };
             res.writeHead(302,{Location : `/?data=${encodeURIComponent(JSON.stringify(Data))}`});
             res.end();
