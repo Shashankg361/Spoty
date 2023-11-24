@@ -1,3 +1,6 @@
+import LikedSong from "@/components/LikedSongs";
+import ShowPlayList from "@/components/playList";
+import RecenetlyPlayed from "@/components/recentlyPlayed";
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -29,14 +32,14 @@ export default  function Home() {
       const response = await currentlyPlayingSong(data.access_token);
       console.log('res ',response)
       setCurrentSong(response);
-      currentlyPlayingSongId = response;
+      //currentlyPlayingSongId = response;
     }
     handlePromise();  
   }
   
-  useEffect(()=>{
+  /*useEffect(()=>{
     setCurrentSong(currentlyPlayingSongId);
-  },[currentlyPlayingSongId])
+  },[currentlyPlayingSongId])*/
 
   return (
     <main
@@ -53,10 +56,10 @@ export default  function Home() {
       </div>
       {
         data && 
-        <div>
-          <button className=" border-2 border-white pr-6 pl-6 pt-2 pb-2 rounded-full">Get LikedSongs</button>
-          <button className=" border-2 border-white pr-6 pl-6 pt-2 pb-2 rounded-full">Get PlayList</button>
-          <button className=" border-2 border-white pr-6 pl-6 pt-2 pb-2 rounded-full">Get RecentlyPlayed</button>
+        <div className="flex items-start ">
+          <LikedSong accessToken={data.access_token} />
+          <ShowPlayList accessToken={data.access_token}/>          
+          <RecenetlyPlayed accessToken={data.access_token}/>
         </div>
       }
       

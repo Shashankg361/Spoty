@@ -60,23 +60,16 @@ async function callback(req,res){
             const tracksData = tracksResponse.data;
             console.log('tracks - ',tracksData);*/
 
-            const getLikedSongs = {
-              url:'https://api.spotify.com/v1/me/tracks',
-              methods :'get',
-              headers :{'Authorization':'Bearer ' + access_token},
-            }
-            const likedSongsResponse = await axios(getLikedSongs);
-            const likedSongs = likedSongsResponse.data;
-            console.log('Liked - ',likedSongs);
+            
 
-            const getRecentlyPlayed = {
-              url:'https://api.spotify.com/v1/me/player/recently-played?limit=5',
+            /*const getRecentlyPlayed = {
+              url:'https://api.spotify.com/v1/me/player/recently-played?limit=3',
               methods :'get',
               headers :{'Authorization':'Bearer ' + access_token},
             }
             const recentlyPlayedSongsResponse = await axios(getRecentlyPlayed);
             const recentlyPlayedSongs = recentlyPlayedSongsResponse.data;
-            console.log('Recent - ',recentlyPlayedSongs);
+            console.log('Recent - ',recentlyPlayedSongs);*/
 
             const Data ={access_token ,
                             data,
