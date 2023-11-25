@@ -74,7 +74,7 @@ async function callback(req,res){
             const Data ={access_token ,
                             data,
                             };
-            res.writeHead(302,{Location : `https://spoty-13.vercel.app/?data=${encodeURIComponent(JSON.stringify(Data))}`});
+            res.writeHead(302,{Location : `/?data=${encodeURIComponent(JSON.stringify(Data))}`});
             res.end();
 
         }catch(error){
