@@ -1,4 +1,4 @@
-//import callback from "@/pages/api/callback";
+/*//import callback from "@/pages/api/callback";
 import Script from "next/script";
 import { useEffect } from "react";
 export default function SpotifyPlayer({accssToken}){
@@ -36,4 +36,4 @@ export default function SpotifyPlayer({accssToken}){
             <div id="spotify-player">Player</div>
             </>
         )
-}
+}*/

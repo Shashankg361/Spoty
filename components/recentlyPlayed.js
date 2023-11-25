@@ -14,7 +14,7 @@ export default function RecenetlyPlayed({accessToken}){
             {data && 
             
             (data.map((element)=>{
-                return(<iframe className="m-2" src={`https://open.spotify.com/embed/track/${element.track.id}`} width="300" height="380"  allowtransparency="true" allow="encrypted-media"></iframe>)
+                return(<iframe className="m-2" key={element.track.id} src={`https://open.spotify.com/embed/track/${element.track.id}`} width="300" height="380"  allowtransparency="true" allow="encrypted-media"></iframe>)
             })
             )}
             </div>
