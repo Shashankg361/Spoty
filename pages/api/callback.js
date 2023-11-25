@@ -44,8 +44,13 @@ async function callback(req,res){
                 methods :'get',
                 headers :{'Authorization':'Bearer ' + access_token},
             };
-            const userResponse = await axios(options)
+            try{
+              const userResponse = await axios(options)
             const data = userResponse.data;
+            }catch(error){
+              res.status(500).json({eorr:'Account data is not ben fetched'});
+            }
+            
            
             //console.log(data);
             
