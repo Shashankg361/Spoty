@@ -36,7 +36,7 @@ async function callback(req,res){
         try{
             console.log('entered');
             const response = await axios(authOptions);
-            const {access_token ,refresh_token} = await response.data;
+            const {access_token ,refresh_token} = response.data;
             //console.log(access_token , refresh_token);
 
             const options = {
