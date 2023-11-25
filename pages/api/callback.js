@@ -1,5 +1,7 @@
 //import axios from "axios";
+var client_id = '94b1c412a255491881b03fd67670d852';
 import querystring from 'querystring';
+import Cors from 'cors';
 import axios from "axios";
 
 var redirect_uri = 'https://spoty-13.vercel.app/api/callback';
@@ -22,7 +24,7 @@ async function callback(req,res){
           method:'post',
            headers: {
             'content-type': 'application/x-www-form-urlencoded',
-            'Authorization': 'Basic ' + (new Buffer.from(process.env.CLIENT_ID + ':' + process.env.CLIENT_SECRET).toString('base64'))
+            'Authorization': 'Basic ' + (new Buffer.from(client_id + ':' + process.env.CLIENT_SECRET).toString('base64'))
           },
           data: querystring.stringify({
             grant_type: 'authorization_code',

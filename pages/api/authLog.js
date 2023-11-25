@@ -1,5 +1,6 @@
 import crypto from 'crypto';
 import querystring from 'querystring';
+var client_id = "94b1c412a255491881b03fd67670d852";
 var redirect_uri = 'https://spoty-13.vercel.app/api/callback';
 
 //var app = express();
@@ -18,7 +19,7 @@ export default function login(req, res) {
   res.writeHead(302,{Location:'https://accounts.spotify.com/authorize?' +
     querystring.stringify({
       response_type: 'code',
-      client_id: process.env.CLIENT_ID,
+      client_id: client_id,
       scope: scope,
       redirect_uri: redirect_uri,
       state: state
