@@ -25,7 +25,7 @@ export default function RecenetlyPlayed({accessToken}){
 
 const func = async(accessToken)=>{
     const getRecentlyPlayed = {
-        url:'https://api.spotify.com/v1/me/player/recently-played?limit=3',
+        url:'https://api.spotify.com/v1/me/player/recently-played',
         methods :'get',
         headers :{'Authorization':'Bearer ' + accessToken},
       }
