@@ -4,7 +4,7 @@ import querystring from 'querystring';
 import Cors from 'cors';
 import axios from "axios";
 
-var redirect_uri = 'https://spoty-blush.vercel.app/api/callback';
+var redirect_uri = 'https://spoty-13.vercel.app/api/callback';
 
 async function callback(req,res){
 
@@ -74,7 +74,7 @@ async function callback(req,res){
             const Data ={access_token ,
                             data,
                             };
-            res.writeHead(302,{Location : `https://spoty-blush.vercel.app/?data=${encodeURIComponent(JSON.stringify(Data))}`});
+            res.writeHead(302,{Location : `https://spoty-13.vercel.app/?data=${encodeURIComponent(JSON.stringify(Data))}`});
             res.end();
 
         }catch(error){

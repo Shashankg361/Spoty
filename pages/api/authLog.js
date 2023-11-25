@@ -1,7 +1,7 @@
 import crypto from 'crypto';
 import querystring from 'querystring';
 var client_id = "94b1c412a255491881b03fd67670d852";
-var redirect_uri = 'https://spoty-blush.vercel.app/api/callback';
+var redirect_uri = 'https://spoty-13.vercel.app/api/callback';
 
 //var app = express();
 const generateRandomString = (length)=>{
