@@ -1,5 +1,5 @@
 //import axios from "axios";
-var client_id = '94b1c412a255491881b03fd67670d852';
+var client_id = "94b1c412a255491881b03fd67670d852";
 import querystring from 'querystring';
 import Cors from 'cors';
 import axios from "axios";
@@ -44,12 +44,10 @@ async function callback(req,res){
                 methods :'get',
                 headers :{'Authorization':'Bearer ' + access_token},
             };
-            try{
+            
               const userResponse = await axios(options)
             const data = userResponse.data;
-            }catch(error){
-              res.status(500).json({eorr:'Account data is not ben fetched'});
-            }
+            
             
            
             //console.log(data);
@@ -83,7 +81,7 @@ async function callback(req,res){
             res.end();
 
         }catch(error){
-            res.status(500).json({eorr:'failed to get access token'});
+            res.status(500).json({erorr:'failed to get access token'});
         }
     }
 };
