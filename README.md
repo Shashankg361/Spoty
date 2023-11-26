@@ -1,5 +1,8 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Get your current song which is being played on spotify , get your playlist's , Liked songs and recently played songs.
+## Meet spoty [Demo](https://spoty-13.vercel.app/)
+
 ## Getting Started
 
 First, run the development server:
