@@ -1,6 +1,9 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Get your current song which is being played on spotify , get your playlist's , Liked songs and recently played songs.
+  # I have to give access to you if you want use your account cause spotify dont give me allow eveeryone option so, use 
+  ## email/username :- demoforproject@gmail.com  
+  ## password :- SpotifyDemo
 ## Meet spoty [Demo](https://spoty-13.vercel.app/)
 
 ## Getting Started
